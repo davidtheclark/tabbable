@@ -1,0 +1,16 @@
+<input type="radio" name="original-group" id="light-radio1" checked></input>
+<test-shadow id="webComp">
+    <template shadowroot="open">
+        <input type="radio" name="original-group" id="shadow-radio1" checked></input>
+        <input type="radio" name="original-group" id="shadow-radio2"></input>
+        <slot></slot>
+    </template>
+    <input type="radio" name="original-group" id="light-radio2-slotted"></input>
+</test-shadow>
+<input type="radio" name="original-group" id="light-radio3"></input>
+<style>
+    /*debug: mark light dom radios */
+    input[type="radio"][name="original-group"] {
+        outline: 1px solid blue;
+    }
+</style>

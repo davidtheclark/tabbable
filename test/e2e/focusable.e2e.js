@@ -2,6 +2,7 @@ import { focusable } from '../../src/index.js';
 import {
   setupTestWindow,
   getFixtures,
+  setupFixture,
   removeAllChildNodes,
   getIdsFromElementsArray,
 } from './e2e.helpers';
@@ -230,17 +231,12 @@ describe('isFocusable', () => {
     it('correctly identifies focusable elements in the "shadow-dom" example', () => {
       const expectedFocusableIds = ['input'];
 
-      const container = document.createElement('div');
-      container.innerHTML = fixtures['shadow-dom'];
-      document.body.append(container);
+      const { container } = setupFixture(fixtures['shadow-dom'], { window });
+      const host = container.querySelector('test-shadow');
 
-      const host = container.querySelector('#shadow-host');
-      const template = container.querySelector('#shadow-root-template');
-
-      const shadow = host.attachShadow({ mode: 'open' });
-      shadow.appendChild(template.content.cloneNode(true));
-
-      const focusableElements = focusable(shadow.querySelector('#container'));
+      const focusableElements = focusable(
+        host.shadowRoot.querySelector('#container')
+      );
 
       expect(getIdsFromElementsArray(focusableElements)).to.eql(
         expectedFocusableIds

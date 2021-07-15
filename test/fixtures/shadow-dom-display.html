@@ -1,0 +1,36 @@
+<div style="display:none;" id="light-display-none">
+    <h2>nested under display none in light dom</h2>
+    <test-shadow>
+        <template shadowroot="open">
+            <div>
+                <input id="shadow-input"></input>
+                <slot></slot>
+            </div>
+        </template>
+        <input id="light-input-slotted"></input>
+    </test-shadow>
+</div>
+
+<div id="slot-display-none">
+    <h2>"display=none" slot</h2>
+    <test-shadow>
+        <template shadowroot="open">
+            <div style="display:none;">
+                <slot></slot>
+            </div>
+        </template>
+        <input id="light-input-slotted"></input>
+    </test-shadow>
+</div>
+
+<div id="slot-display-none-closed-shadow">
+    <h2>"display=none" slot (mode=closed)</h2>
+    <test-shadow>
+        <template shadowroot="closed">
+            <div style="display:none;">
+                <slot></slot>
+            </div>
+        </template>
+        <input id="light-input-slotted"></input>
+    </test-shadow>
+</div>

@@ -23,4 +23,16 @@ module.exports = {
     'utf8'
   ),
   displayed: fs.readFileSync(path.join(__dirname, 'displayed.html'), 'utf8'),
+  shadowDomRadio: fs.readFileSync(
+    path.join(__dirname, 'shadow-dom-radio.html'),
+    'utf8'
+  ),
+  shadowDomDisplay: fs.readFileSync(
+    path.join(__dirname, 'shadow-dom-display.html'),
+    'utf8'
+  ),
+  shadowDomQuery: fs.readFileSync(
+    path.join(__dirname, 'shadow-dom-query.html'),
+    'utf8'
+  ),
 };
